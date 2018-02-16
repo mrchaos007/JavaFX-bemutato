@@ -34,8 +34,11 @@ public class Bemutato extends Application {
 //        circle1.setCenterY(70);
         circle1.centerXProperty().bind(pane3.widthProperty().divide(2));
         circle1.centerYProperty().bind(pane3.heightProperty().divide(2));
+        circle1.setStyle("-fx-fill:green;-fx-stroke:red;");
 
-        circle1.setFill(Color.BISQUE);
+//        Color color = new Color(0.7, 0.2, 0.5, 0.5);
+//        Color color2 = color.darker();
+//        circle1.setFill(color2);
 
         pane3.getChildren().add(circle1);
         stage3.setScene(new Scene(pane3, 300, 300));
