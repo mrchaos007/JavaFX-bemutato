@@ -2,48 +2,30 @@
 package bemutato;
 
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class Bemutato extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        StackPane pane1 = new StackPane();
-        pane1.getChildren().add(new Button("Első Button"));
-        Scene scene1 = new Scene(pane1, 300, 50);
+        StackPane pane = new StackPane();
+        Image image = new Image("http://www.lanpartyguide.com/images/cod4_banner.jpg");
+        ImageView imageView = new ImageView(image);
+        imageView.setRotate(15);
+        pane.getChildren().add(imageView);
+        pane.setAlignment(imageView, Pos.TOP_LEFT);
+        imageView.fitWidthProperty().bind(pane.widthProperty());
+        
+        Scene scene1 = new Scene(pane, 800, 600);
         primaryStage.setScene(scene1);
-        primaryStage.setTitle("Első Stage");
+        primaryStage.setTitle("Programunk");
         primaryStage.show();
-        
-        Stage stage2 = new Stage();
-        stage2.setScene(new Scene(new Button("Második Button"), 300, 100));
-        stage2.setTitle("Második Stage");
-        stage2.show();
-        
-        Pane pane3 = new Pane();
-        Stage stage3 = new Stage();
-        Circle circle1 = new Circle();
-        circle1.setRadius(50);
-//        circle1.setCenterX(70);
-//        circle1.setCenterY(70);
-        circle1.centerXProperty().bind(pane3.widthProperty().divide(2));
-        circle1.centerYProperty().bind(pane3.heightProperty().divide(2));
-        circle1.setStyle("-fx-fill:green;-fx-stroke:red;");
-
-//        Color color = new Color(0.7, 0.2, 0.5, 0.5);
-//        Color color2 = color.darker();
-//        circle1.setFill(color2);
-
-        pane3.getChildren().add(circle1);
-        stage3.setScene(new Scene(pane3, 300, 300));
-        stage3.setTitle("Harmadik Stage");
-        stage3.show();
+             
     }
 
     public static void main(String[] args) {
