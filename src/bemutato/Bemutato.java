@@ -26,13 +26,17 @@ public class Bemutato extends Application {
         stage2.setTitle("Második Stage");
         stage2.show();
         
+        Pane pane3 = new Pane();
         Stage stage3 = new Stage();
         Circle circle1 = new Circle();
         circle1.setRadius(50);
-        circle1.setCenterX(70);
-        circle1.setCenterY(70);
+//        circle1.setCenterX(70);
+//        circle1.setCenterY(70);
+        circle1.centerXProperty().bind(pane3.widthProperty().divide(2));
+        circle1.centerYProperty().bind(pane3.heightProperty().divide(2));
+
         circle1.setFill(Color.BISQUE);
-        Pane pane3 = new Pane();
+
         pane3.getChildren().add(circle1);
         stage3.setScene(new Scene(pane3, 300, 300));
         stage3.setTitle("Harmadik Stage");
